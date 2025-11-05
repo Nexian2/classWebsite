@@ -1,0 +1,402 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* BODY */
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #f5f8ff;
+  color: #0a0a0a;
+  overflow-x: hidden;
+  transition: background 0.5s ease;
+}
+
+/* ============================= */
+/* NAVBAR */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(10px);
+  padding: 12px 60px;
+  height: 70px;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0, 64, 255, 0.08);
+  border-bottom: 1px solid rgba(0, 64, 255, 0.1);
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-img {
+  width: 45px;
+  height: 45px;
+  border-radius: 20%;
+  object-fit: cover;
+  border: 2px solid rgba(0, 102, 255, 0.3);
+}
+
+.text {
+  font-size: 22px;
+  font-weight: 700;
+  color: #000000;
+}
+
+/* MENU */
+.list {
+  list-style: none;
+  display: flex;
+  gap: 40px;
+}
+
+.list li a {
+  text-decoration: none;
+  color: #0a0a0a;
+  font-weight: 500;
+  font-size: 18px;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.list li a::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #007bff, #00d4ff);
+  transition: width 0.3s ease;
+}
+
+.list li a:hover::after {
+  width: 100%;
+}
+
+.list li a:hover {
+  color: #007bff;
+}
+
+/* ============================= */
+/* HERO SECTION */
+.hero {
+  background: linear-gradient(135deg, #e3f2ff 0%, #ffffff 40%, #e3f2ff 100%);
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0 20px;
+  text-align: center;
+  animation: fadeIn 1s ease forwards;
+  border: 2px solid #00c6ff;
+  border-top-right-radius: 100px;
+  background-color: #0b0d17;
+}
+
+.border {
+  border-radius: 10px;
+}
+
+.border img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #00c6ff;
+  box-shadow: 0 0 20px #00c6ff;
+}
+
+/* ============================= */
+/* SCROLL INDICATOR */
+.scroll-indicator {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: bounce 2s infinite;
+}
+
+.scroll-indicator span {
+  display: block;
+  width: 30px;
+  height: 50px;
+  border: 2px solid rgba(0, 102, 255, 0.4);
+  border-radius: 25px;
+  position: relative;
+}
+
+.scroll-indicator span::before {
+  content: '';
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 6px;
+  height: 6px;
+  background: #007bff;
+  border-radius: 50%;
+  animation: scrollDot 2s infinite;
+}
+
+/* IG LINK */
+.ig-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px;
+  text-decoration: none;
+  color: #00c6ff;
+  font-size: 18px;
+  transition: 0.3s;
+}
+
+.ig-link:hover {
+  color: #454141;
+}
+
+.ig-icon {
+  width: 25px;
+  height: 25px;
+}
+
+/* ============================= */
+/* ANIMATIONS */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% { transform: translate(-50%, 0); }
+  40% { transform: translate(-50%, -10px); }
+  60% { transform: translate(-50%, -5px); }
+}
+
+@keyframes scrollDot {
+  0% { top: 10px; opacity: 1; }
+  50% { top: 25px; opacity: 0.3; }
+  100% { top: 10px; opacity: 1; }
+}
+
+/* ============================= */
+/* RESPONSIVE */
+@media (max-width: 992px) {
+  .navbar {
+    padding: 12px 30px;
+  }
+
+  .list {
+    gap: 25px;
+  }
+
+  .text {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    height: auto;
+    padding: 15px 20px;
+  }
+
+  .list {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    margin-top: 10px;
+  }
+
+  .hero {
+    min-height: 90vh;
+    padding: 40px 20px;
+    border-top-right-radius: 60px;
+  }
+
+  .border img {
+    width: 160px;
+    height: 160px;
+  }
+
+  .ig-link {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo-img {
+    width: 35px;
+    height: 35px;
+  }
+
+  .text {
+    font-size: 18px;
+  }
+
+  .list li a {
+    font-size: 16px;
+  }
+
+  .hero {
+    padding: 30px 15px;
+    border-top-right-radius: 40px;
+  }
+
+  .border img {
+    width: 130px;
+    height: 130px;
+  }
+
+  .ig-link {
+    font-size: 14px;
+  }
+}
+/* ============================= */
+/* RESPONSIVE DESIGN */
+
+/* Tablet (max-width: 1024px) */
+@media (max-width: 1024px) {
+  .navbar {
+    padding: 12px 30px;
+  }
+
+  .list {
+    gap: 25px;
+  }
+
+  .hero h1 {
+    font-size: 42px;
+  }
+
+  .hero p {
+    font-size: 18px;
+    max-width: 600px;
+  }
+
+  .exHero {
+    flex-direction: column;
+    padding: 60px 40px;
+    text-align: center;
+  }
+
+  .Content {
+    text-align: center;
+  }
+
+  .image img {
+    width: 300px;
+    height: 300px;
+  }
+
+  .bg-animated h1 {
+    font-size: 36px;
+  }
+}
+
+/* Mobile (max-width: 768px) */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    padding: 10px 20px;
+    height: auto;
+  }
+
+  .logo-container {
+    justify-content: center;
+    margin-bottom: 10px;
+  }
+
+  .list {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+  }
+
+  .hero {
+    height: 90vh;
+    padding: 0 20px;
+  }
+
+  .hero h1 {
+    font-size: 34px;
+  }
+
+  .hero p {
+    font-size: 16px;
+  }
+
+  .exHero {
+    flex-direction: column;
+    gap: 40px;
+    padding: 40px 25px;
+  }
+
+  .image img {
+    width: 240px;
+    height: 240px;
+  }
+
+  .card {
+    width: 90%;
+    max-width: 320px;
+  }
+}
+
+/* Small Mobile (max-width: 480px) */
+@media (max-width: 480px) {
+  .navbar {
+    padding: 10px 15px;
+  }
+
+  .list {
+    gap: 10px;
+  }
+
+  .hero h1 {
+    font-size: 28px;
+  }
+
+  .hero p {
+    font-size: 15px;
+  }
+
+  .exHero {
+    padding: 30px 15px;
+  }
+
+  .image img {
+    width: 200px;
+    height: 200px;
+  }
+
+  .Content h1 {
+    font-size: 24px;
+  }
+
+  .card {
+    width: 100%;
+  }
+
+  .card-content h2 {
+    font-size: 18px;
+  }
+
+  .card-content p {
+    font-size: 14px;
+  }
+}
